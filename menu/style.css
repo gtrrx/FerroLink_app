@@ -18,4 +18,5 @@ body {
 
 .meubago {
     display: flex;
+    gap: 15px;
 }
