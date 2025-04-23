@@ -19,3 +19,8 @@ body {
     display: flex;
     gap: 15px;
 }
+
+.Info {
+    background-color: white;
+    border-radius: 8px ;
+}
