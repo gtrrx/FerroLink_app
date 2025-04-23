@@ -1,0 +1,16 @@
+body {
+    background-color: #ff9900;
+}
+
+.Informacoes {
+    background-color: white;
+    border-radius: 8px;
+}
+
+.Info {
+    display: flex;
+    border-radius: 100%;
+    background-color: aqua;
+    max-width: 30px;
+    max-height: 80px;
+}
