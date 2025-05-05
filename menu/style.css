@@ -10,17 +10,71 @@ body {
     color: rgb(0, 0, 0);
 }
 
-.img {
-    
+
+
+.info-container {
+    background-color: #ddd;
+    max-width: 100%;
+    margin: 15px auto;
+    font-family: Arial, sans-serif;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+}
+
+.trem-item {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
 }
 
 
-.meubago {
+.trem-name {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.trem-info {
+    color: #666;
+    font-size: 14px;
+    display: block;
+    margin-left: 23px;
+}
+
+
+
+
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
     display: flex;
-    gap: 15px;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.Info {
-    background-color: white;
-    border-radius: 8px ;
+.menu-item {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #555;
 }
