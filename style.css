@@ -345,3 +345,14 @@ button:hover {
     border-style: solid;
     border-width: 2px;
 }
+
+.circulo-adm {
+    padding: 10px;
+    background-color: aqua;
+     width: 70px;
+     height: 70px;
+     border-radius: 50%;
+     background-image: url("/img/perfil.jpg");
+     background-size: cover;
+    
+}
