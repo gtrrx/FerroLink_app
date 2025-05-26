@@ -334,3 +334,14 @@ button:hover {
 .forgot-adm a:hover {
     text-decoration: underline;
 }
+
+
+.add_user {
+    background-color: #ddd;
+    width: 400px;
+    height: 600px;
+    border-radius: 8px;
+    border-color: #000000;
+    border-style: solid;
+    border: 2o;
+}
