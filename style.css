@@ -240,7 +240,9 @@ button {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
-    
+    margin-top: 230px;
+    margin-left: 195px;
+
 }
 
 .login-container h2 {
@@ -320,4 +322,15 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+}
+
+.forgot-adm a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+}
+
+.forgot-adm a:hover {
+    text-decoration: underline;
 }
