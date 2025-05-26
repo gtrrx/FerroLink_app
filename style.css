@@ -338,10 +338,10 @@ button:hover {
 
 .add_user {
     background-color: #ddd;
-    width: 400px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     border-color: #000000;
     border-style: solid;
-    border: 2o;
+    border-width: 2px;
 }
