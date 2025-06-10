@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding-bottom: 70px; 
     background-color: #ff9900;
 }
 
@@ -51,17 +51,21 @@ body {
     width: 100%;
     background-color: #333;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding: 10px 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .menu-item {
+    flex: 1 1 auto;
+    text-align: center;
     color: white;
     text-decoration: none;
-    padding: 8px 16px;
+    padding: 10px;
     border-radius: 4px;
     transition: background-color 0.3s;
+    font-size: 14px;
 }
 
 .menu-item:hover {
@@ -78,12 +82,12 @@ body {
 
 .info-container {
     background-color: #ffffff;
-    max-width: 100%;
+    width: 100%;
+    max-width: 600px;
     margin: 15px auto;
-    font-family: Arial, sans-serif;
+    padding: 20px;
     border: 2px solid #000000;
     border-radius: 12px;
-    padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -359,4 +363,8 @@ button:hover {
 }
 a{
     text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
 }
