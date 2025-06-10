@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,37 @@
     <title>Document</title>
 </head>
 
+
 <body>
+
 
     <div class="info-container">
         <div class="info-title">Adicionar Usuario</div>
 
+
         <div class="flex">
             <div class="">
                 <label for="tremA" class="trem-name">Nome do novo usuário:</label>
-                <input type="text" id="fname" name="fname"><br><br>
+                <input type="text" id="userName" name="userName"><br><br>
             </div>
+
 
             <div class="circulo-adm"></div>
         </div>
 
+
         <div class="">
             <label for="tremB" class="trem-name">Nova senha do usuário:</label>
-            <input type="text" id="fname" name="fname"><br><br>
+            <input type="password" id="userPassword" name="userPassword"><br><br>
         </div>
+
 
         <div class="">
             <label for="tremC" class="trem-name">Função:</label>
             <div class="Perfils">
                 <div class="form-group">
                     <label for="Perfils"></label>
-                    <select id="Perfilis" required>
+                    <select id="userRole" required>
                         <option value="">Selecione uma função</option>
                         <option>Maquinista</option>
                         <option>Operário</option>
@@ -43,24 +50,30 @@
                 </div>
         </div>
 
+
         <hr>
+
 
         <div class="">
             <label for="tremD" class="trem-name">Email do usuário:</label>
-            <input type="text" id="fname" name="fname"><br><br>
+            <input type="text" id="userEmail" name="userEmail"><br><br>
         </div>
+
 
         <div class="">
             <label for="tremE" class="trem-name">Número para contato:</label>
-            <input type="text" id="fname" name="fname"><br><br>
+            <input type="text" id="userPhone" name="userPhone"><br><br>
         </div>
 
-        <button type="submit"><a href="">Adicionar</a></button>
 
+        <button id="addUserBtn">Adicionar</button>
         <br>
-    <button type="submit"><a href="../index.html">Sair</a></button>
+    <button onclick="location.href='../index.html'">Sair</button>
     </div>
+    <script src="../script.js"></script>
+
 
 </body>
+
 
 </html>

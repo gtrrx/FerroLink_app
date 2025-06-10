@@ -9,22 +9,28 @@
     <body>
         <div class="login-container">
             <h2>Login Administração</h2>
-            <form method="POST">
+            <form id="formsAdm">
+
+
                 <div class="input-group">
-                    <label for="username">Usuário</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email">
                 </div>
+   
                 <div class="input-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password">
                 </div>
-                <button class="botao_entrar" type="submit"><a href="add_usuario.html">Entrar</a></button>
-                
+                <button type="submit" id="entrar" class="botao_entrar">Entrar</button>
+   
             </form>
             <div class="forgot-password">
                 <a href="Senha/senha.html">Esqueceu a senha?</a>
             </div>
         </div>
+
+
+        <script src="../script.js"></script>
     </body>
 </body>
 </html>
