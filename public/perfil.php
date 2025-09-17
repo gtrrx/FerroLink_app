@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,8 +45,11 @@
             <span class="trem-info">Mais informações.</span>
         </div>
 
-        <button type="submit"><a href="../index.html">Sair</a></button>
+           <form action="../index.php" method="get" style="text-align:center;">
+            <button type="submit" name="logout" value="1" class="logout-btn">Sair</button>
+        </form>
     </div>
+
 
 
 
@@ -65,13 +70,14 @@
 
 
     <div class="bottom-menu">
-        <a href="../public/menu.html" class="menu-item">🏠  Inicio</a>
-        <a href="../public/info.html" class="menu-item">ℹ️ Info</a>
-        <a href="../public/relatorio.html" class="menu-item">📊 Relatorio</a>
-        <a href="../public/linha.html" class="menu-item">📈 Linha</a>
-        <a href="../public/perfil.html" class="menu-item">👤 Perfil</a>
+        <a href="../public/menu.php" class="menu-item">🏠  Inicio</a>
+        <a href="../public/info.php" class="menu-item">ℹ️ Info</a>
+        <a href="../public/relatorio.php" class="menu-item">📊 Relatorio</a>
+        <a href="../public/linha.php" class="menu-item">📈 Linha</a>
+        <a href="../public/perfil.php" class="menu-item">👤 Perfil</a>
     </div>
 
 </body>
 
 </html>
+

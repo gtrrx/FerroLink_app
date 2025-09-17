@@ -403,3 +403,72 @@ img {
 input, button, label {
     font-size: 16px;
   }
+  .card{
+       background-color: rgb(150, 141, 141);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 250px;
+  }
+  .card {
+    background-color: #7e7d7d;  /* mesmo tom do login adm */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 120px auto; /* centralizado */
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.card .loguim {
+    margin-bottom: 15px;
+}
+
+.card input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 24px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;  /* azul igual ao adm */
+    color: white;
+    border: none;
+    border-radius: 24px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #2980b9;
+}
+
+.forgot-adm a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.forgot-adm a:hover {
+    text-decoration: underline;
+}
+ .loguim{
+    padding: 35px;
+    border-radius: 15px;
+ }
+

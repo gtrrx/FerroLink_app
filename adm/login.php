@@ -25,7 +25,7 @@
    
             </form>
             <div class="forgot-password">
-                <a href="Senha/senha.html">Esqueceu a senha?</a>
+                <a href="Senha/senha.php">Esqueceu a senha?</a>
             </div>
         </div>
 

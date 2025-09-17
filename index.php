@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($dados) {
         $_SESSION["user_id"] = $dados["id_usuario"];
         $_SESSION["username"] = $dados["username"];
-        header("Location: public/menu.html");
+        header("Location: public/menu.php");
         exit;
     } else {
         $msg = "Usuário ou senha incorretos!";
@@ -51,12 +51,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <?php else: ?>
   <div class="card">
-    <h3>Login</h3>
+    <h2>Login</h2>
     <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
     <form method="post">
+        <div class="loguim">
+        <div class="user">
       <input type="text" name="username" placeholder="Usuário" required>
+        </div>
+        <div class="senh">
       <input type="password" name="password" placeholder="Senha" required>
+      </div>
+        </div>
       <button type="submit">Entrar</button>
+      <br>
+        <div class="forgot-adm">
+            <a href="adm/login.php">Entrar como Administrador</a>
+        </div>
     </form>
     <p><small>Dica: Admin / admin123</small></p>
   </div>
@@ -78,36 +88,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 
-<body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="forms-login">
-            <div class="input-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email">
-            </div>
-
-
-            <div class="input-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password">
-            </div>
-            <button type="submit" id="entrar" class="botao_entrar">Entrar</button>
-
-
-        </form>
-        <div class="forgot-password">
-            <a href="Senha/senha.html">Esqueceu a senha?</a>
-        </div>
-        <br>
-        <div class="forgot-adm">
-            <a href="adm/login.html">Entrar como Administrador</a>
-        </div>
-    </div>
-
-
-    <script src="script.js"></script>
-</body>
 
 
 </html>

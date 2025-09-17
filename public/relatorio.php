@@ -1,3 +1,6 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,11 +81,11 @@
         </ul>
     </div>
     <div class="bottom-menu">
-        <a href="../public/menu.html" class="menu-item">🏠  Inicio</a>
-        <a href="../public/info.html" class="menu-item">ℹ️ Info</a>
-        <a href="../public/relatorio.html" class="menu-item">📊 Relatorio</a>
-        <a href="../public/linha.html" class="menu-item">📈 Linha</a>
-        <a href="../public/perfil.html" class="menu-item">👤 Perfil</a>
+        <a href="../public/menu.php" class="menu-item">🏠  Inicio</a>
+        <a href="../public/info.php" class="menu-item">ℹ️ Info</a>
+        <a href="../public/relatorio.php" class="menu-item">📊 Relatorio</a>
+        <a href="../public/linha.php" class="menu-item">📈 Linha</a>
+        <a href="../public/perfil.php" class="menu-item">👤 Perfil</a>
     </div>
     
 </body>
