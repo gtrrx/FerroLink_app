@@ -57,11 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
         <h3>Cadastro Novo Usuário</h3>
         <?php if ($register_msg):  ?> <p> <?= $register_msg ?> </p> <?php endif; ?>
         <input type="text" name="new_username" placeholder="Novo Usuário" required>
+        <br>
+        <br>
         <input type="password" name="new_password" placeholder="Nova Senha" required>
+        <br>
+        <br>
         <select name="new_func">
             <option value="adm">ADM</option>
             <option value="funcionário">Funcionário</option>
-            <option value="func" selected>FUNC</option>
         </select>
         <button type="submit" name="register" value="1"> Cadastrar</button>
     </form>

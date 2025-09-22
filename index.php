@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <?php else: ?>
   <div class="card">
-    <h2>Login</h2>
+    <h2>Bem-Vindo</h2>
     <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
     <form method="post">
         <div class="loguim">
