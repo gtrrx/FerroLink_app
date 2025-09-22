@@ -30,7 +30,7 @@
 
         <div class="trem-item">
             <label for="tremC" class="trem-name">Função:</label>
-            <span class="trem-info">Maquinista</span>
+            <span class="trem-info">Funcionario</span>
         </div>
 
         <hr>

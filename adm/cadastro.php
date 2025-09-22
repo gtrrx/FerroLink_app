@@ -44,11 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>Cadastro de Novo Usuário do Sistema</title>
 </head>
 
 <body>
-
+    <div class="card">
     <form method="post">
         <h2>
             Bem-vindo,
@@ -62,14 +63,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
         <input type="password" name="new_password" placeholder="Nova Senha" required>
         <br>
         <br>
+            <div class="sele">
         <select name="new_func">
             <option value="adm">ADM</option>
             <option value="funcionário">Funcionário</option>
         </select>
+            </div>
+        <br>
+        <br>
         <button type="submit" name="register" value="1"> Cadastrar</button>
+        <br>
+         <button type="submit" name="Sair" value="1"> voltar</button>
+        
     </form>
-    <p><a href="../index.php">Voltar</a></p>
-
+    </div>
 </body>
 
 </html>

@@ -43,15 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 <?php if (!empty($_SESSION["user_id"])): ?>
-  <div class="card">
+<div class="card">
     <h3>Bem-vindo, <?= $_SESSION["username"] ?>!</h3>
     <p>Sessão ativa.</p>
     <p><a href="?logout=1">Sair</a></p>
   </div>
 
 <?php else: ?>
-  <div class="card">
-    <h2>Login</h2>
+<div class="card">
+    <h2>Login ADM</h2>
     <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
     <form method="post">
         <div class="loguim">
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Document</title>
 </head>
 

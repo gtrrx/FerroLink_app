@@ -19,42 +19,43 @@
 
 <body>
     <div class="piranha text-center">
-        <img src="../img/rota.png" class="img-fluid" style="max-width: 80%; height: auto;">
-    </div>
-    <div class="info-container">
-        <div class="info-title">Informações
-            <div class="info-container">
-                <div class="list-group">
-                    <a href="linha.html" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-00 justify-content-between">
-                            <h5 class="mb-1">Trem A</h5>
-                            <small><h5>3 days ago</h1></small>
-                        </div>
-                        <p class="mb-1">Mais informação.</p>
-                    </a>
-                    <a href="linha.html" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-10 justify-content-between">
-                            <h5 class="mb-1">Trem B</h5>
-                            <small class="text-body-secondary">3 days ago
-                        </div>
-                        <p class="mb-1">Mais informação.</p>
-                    </a>
-                    <a href="linha.html" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-10 justify-content-between">
-                            <h5 class="mb-1">Trem C</h5>
-                            <small  class="text-body-secondary"><h5>3 days ago</h3>
-                        </div>
-                        <p class="mb-1">Mais informação.</p>
-                    </a>
-                    <a href="linha.html" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-10 justify-content-between">
-                            <h5 class="mb-1">Trem D</h5>
-                            <small class="text-body-secondary"><h5>3 days ago</h3>
-                        </div>
-                        <p class="mb-1">Mais informação.</p>
-                    </a>
-                </div>
+    <img src="../img/rota.png" class="img-fluid" style="max-width: 70%; height: auto;">
+</div>
+
+<div class="info-container">
+    <div class="info-title">Informações</div>
+    <div class="list-group">
+        <a href="linha.html" class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between">
+                <h5 class="mb-1">Trem A</h5>
+                <small>3 days ago</small>
             </div>
+            <p class="mb-1">Mais informação.</p>
+        </a>
+        <a href="linha.html" class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between">
+                <h5 class="mb-1">Trem B</h5>
+                <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Mais informação.</p>
+        </a>
+        <a href="linha.html" class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between">
+                <h5 class="mb-1">Trem C</h5>
+                <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Mais informação.</p>
+        </a>
+        <a href="linha.html" class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between">
+                <h5 class="mb-1">Trem D</h5>
+                <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Mais informação.</p>
+        </a>
+    </div>
+</div>
+
         
 
 
