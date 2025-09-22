@@ -1,0 +1,169 @@
+start transaction;
+
+create database Banco_SA;
+
+use Banco_SA; 
+
+
+create table Trem (
+    id_trem int primary key auto_increment,
+    localizacao_trem varchar(100) not null,
+    velocidade_trem int not null,
+    direcao_trem varchar(100) null
+);
+
+create table Carga (
+    id_carga int primary key auto_increment,
+    tipo_carga varchar(100) not null,
+    quantidade_carga int not null
+);
+
+create table Rota (
+    id_rota int primary key auto_increment,
+    horario_rota time not null,
+    distancia_rota time not null,
+    tempo_medio_rota time not null
+);
+
+create table Estacao (
+    id_estacao int primary key auto_increment,
+    localizacao_estacao varchar(100) not null,
+    clima_estacao varchar(100) null,
+    horario_funcionamento_estacao time not null
+);
+
+create table Passageiro (
+    id_passageiro int primary key auto_increment,
+    nome_passageiro varchar(100) not null,
+    idade_passageiro int not null,
+    cpf_passageiro varchar(11) null,
+    ticket_passageiro varchar(100) not null
+);
+
+create table Usuario (
+    id_usuario int primary key auto_increment,
+    username varchar(120) not null,
+    senha varchar(100) not null,
+    tipo_usuario ENUM('Admin','Usuario')
+);
+
+create table Alerta (
+    id_alerta int primary key auto_increment,
+    falhas_alerta varchar(100) not null,
+    emrgencia_alerta varchar(100) null,
+    ordem_servico_alerta text not null,
+    desvio_alerta varchar(100) null,
+    seguranca_alerta varchar(100) null,
+    obstrucoes_alerta text null
+);
+
+create table Relatorio (
+    id_relatorio int primary key auto_increment,
+    eficiencia_energetica_relatorio text null,
+    pontualidade_relatorio text null,
+    causa_atraso_relatorio text null,
+    causa_manutencao_relatorio text null
+);
+
+create table Manutencao (
+    id_manutencao int primary key auto_increment,
+    motor_manutencao text null,
+    freio_manutencao text null,
+    sistema_eletrico_manutencao text null,
+    sistema_hidraulico_manutencao text null,
+    roda_ferroviaria_manutencao text null,
+    fk_id_trem int,
+    foreign key (fk_id_trem) references Trem(id_trem) 
+);
+
+create table Alerta_gera_relatório (
+    id_alerta_gera_relatorio int primary key auto_increment,
+    fk_id_alerta int,
+    foreign key (fk_id_alerta) references Alerta(id_alerta),
+    fk_id_relatorio int,
+    foreign key (fk_id_relatorio) references Relatorio(id_relatorio)
+);
+
+create table Notificacao (
+    id_notificacao int primary key auto_increment,
+    horario_chegada_notificacao time not null,
+    horario_saida_notificacao time not null,
+    causa_notificacao text null,
+    fk_id_alerta int,
+    foreign key (fk_id_alerta) references Alerta(id_alerta) 
+);
+
+create table Segmento (
+    id_segmento int primary key auto_increment,
+    sinalizacao_segmento varchar(100) not null,
+    velocidade_segmento int not null,
+    distancia_segmento varchar(100) not null,
+    rota_segmento varchar(100) not null,
+    sensor_segmento varchar(100) not null,
+    fk_id_rota int,
+    foreign key (fk_id_rota) references Rota(id_rota) 
+);
+
+create table Sensor (
+    id_sensor int primary key auto_increment,
+    implantacao_sensor varchar(100) not null,
+    manutencao_sensor text null,
+    fk_id_segmento int,
+    foreign key (fk_id_segmento) references Segmento(id_segmento) 
+);
+
+create table Dado_sensores (
+    id_dado_sensores int primary key auto_increment,
+    horario_dado_sensores time not null,
+    localizacao_dado_sensores varchar(100) not null,
+    fk_id_sensor int,
+    foreign key (fk_id_sensor) references Sensor(id_sensor) 
+);
+
+create table Itinerario (
+    id_itinerario int primary key auto_increment,
+    horario_saida_itinerario time not null,
+    horario_chegada_itinerario time not null,
+    fk_id_rota int,
+    foreign key (fk_id_rota) references Rota(id_rota) 
+);
+
+create table Viagem (
+    id_viagem int primary key auto_increment,
+    fk_id_itinerario int,
+    foreign key (fk_id_itinerario) references Itinerario(id_itinerario),
+    fk_id_passageiro int,
+    foreign key (fk_id_passageiro) references Passageiro(id_passageiro)
+);
+
+create table Estacao_rota (
+    id_estacao_rota int primary key auto_increment,
+    fk_id_rota int,
+    foreign key (fk_id_rota) references Rota(id_rota),
+    fk_id_estacao int,
+    foreign key (fk_id_estacao) references Estacao(id_estacao)
+);
+
+create table Rota_trem (
+    id_rota_trem int primary key auto_increment,
+    fk_id_trem int,
+    foreign key (fk_id_trem) references Trem(id_trem),
+    fk_id_rota int,
+    foreign key (fk_id_rota) references Rota(id_rota)
+);
+
+create table Carga_trem (
+    id_carga_trem int primary key auto_increment,
+    fk_id_trem int,
+    foreign key (fk_id_trem) references Trem(id_trem),
+    fk_id_carga int,
+    foreign key (fk_id_carga) references Carga(id_carga)
+);
+
+create table Sensor_emite_alerta (
+    id_sensor_emite_alerta int primary key auto_increment,
+    fk_id_dado_sensores int,
+    foreign key (fk_id_dado_sensores) references Dado_sensores(id_dado_sensores),
+    fk_id_alerta int,
+    foreign key (fk_id_alerta) references Alerta(id_alerta)
+);
