@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <button type="submit">Entrar</button>
       <br>
         <div class="forgot-adm">
-            <a href="adm/login.php">Entrar como Administrador</a>
+            <a href="adm/login.php">Entrar como Admin</a>
         </div>
     </form>
     <p><small>Dica: Admin / admin123</small></p>
