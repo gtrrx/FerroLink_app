@@ -20,9 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
     $new_user = $_POST['new_username'] ?? "";
     $new_pass = $_POST['new_password'] ?? "";
     $new_func = $_POST['new_func'] ?? "";
+    $new_email = $_POST['new_email'] ?? "";
     if ($new_user && $new_pass) {
-        $stmt = $mysqli->prepare("INSERT INTO usuario (username, senha, cargo) VALUES (?,?,?)");
-        $stmt->bind_param("sss", $new_user, $new_pass, $new_func);
+        $stmt = $mysqli->prepare("INSERT INTO usuario (username, senha, cargo, email) VALUES (?,?,?,?)");
+        $stmt->bind_param("ssss", $new_user, $new_pass, $new_func, $new_email);
 
         if ($stmt->execute()) {
             $register_msg = "Usuário cadastrado com sucesso!";
@@ -57,10 +58,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
         </h2>
         <h3>Cadastro Novo Usuário</h3>
         <?php if ($register_msg):  ?> <p> <?= $register_msg ?> </p> <?php endif; ?>
-        <input type="text" name="new_username" placeholder="Novo Usuário" required>
+        <input type="text" name="new_username" placeholder="Nome Usuário" required>
         <br>
         <br>
-        <input type="password" name="new_password" placeholder="Nova Senha" required>
+        <input type="password" name="new_password" placeholder="Senha" required>
+        <br>
+        <br>
+        <input type="email" name="new_email" placeholder="Email do usuario" required>
         <br>
         <br>
             <div class="sele">
@@ -73,7 +77,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
         <br>
         <button type="submit" name="register" value="1"> Cadastrar</button>
         <br>
-         <button type="submit" name="Sair" value="1"> voltar</button>
+        <div class="forgot-adm">
+            <a href="editar.php">Editar usuario</a>
+        </div>
+        <button type="submit" name="Sair" value="1"> voltar</button>
         
     </form>
     </div>

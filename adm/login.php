@@ -64,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
       <button type="submit">Entrar</button>
       <br>
+      <a href="../index.php">Voltar</a>
     </form>
     <p><small>Dica: Admin / admin123</small></p>
   </div>
