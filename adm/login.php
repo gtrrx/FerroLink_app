@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="card">
     <h3>Bem-vindo, <?= $_SESSION["username"] ?>!</h3>
     <p>Sessão ativa.</p>
-    <p><a href="?logout=1">Sair</a></p>
+    <p><a href="../index.php">Sair</a></p>
   </div>
 
 <?php else: ?>

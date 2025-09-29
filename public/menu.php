@@ -25,28 +25,28 @@
 <div class="info-container">
     <div class="info-title">Informações</div>
     <div class="list-group">
-        <a href="linha.html" class="list-group-item list-group-item-action">
+        <a href="linha.php" class="list-group-item list-group-item-action">
             <div class="d-flex justify-content-between">
                 <h5 class="mb-1">Trem A</h5>
                 <small>3 days ago</small>
             </div>
             <p class="mb-1">Mais informação.</p>
         </a>
-        <a href="linha.html" class="list-group-item list-group-item-action">
+        <a href="linha.php" class="list-group-item list-group-item-action">
             <div class="d-flex justify-content-between">
                 <h5 class="mb-1">Trem B</h5>
                 <small>3 days ago</small>
             </div>
             <p class="mb-1">Mais informação.</p>
         </a>
-        <a href="linha.html" class="list-group-item list-group-item-action">
+        <a href="linha.php" class="list-group-item list-group-item-action">
             <div class="d-flex justify-content-between">
                 <h5 class="mb-1">Trem C</h5>
                 <small>3 days ago</small>
             </div>
             <p class="mb-1">Mais informação.</p>
         </a>
-        <a href="linha.html" class="list-group-item list-group-item-action">
+        <a href="linha.php" class="list-group-item list-group-item-action">
             <div class="d-flex justify-content-between">
                 <h5 class="mb-1">Trem D</h5>
                 <small>3 days ago</small>
