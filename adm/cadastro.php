@@ -1,6 +1,26 @@
 <?php
 
-// 1) Conexão
+class User
+{
+    private $conn;
+
+    public function __construct($db)
+    {
+        $this->conn = $db;
+    }
+
+    public function register($username, $email, $password)
+    {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (:username , :email, :password)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $hash);
+        return $stmt->execute();
+    }
+}
+
 $mysqli = new mysqli("localhost", "root", "root", "banco_sa");
 if ($mysqli->connect_errno) {
     die("Erro de conexão: " . $mysqli->connect_error);
@@ -8,7 +28,6 @@ if ($mysqli->connect_errno) {
 
 session_start();
 
-// 2) Logout
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: login.php");
@@ -22,9 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
     $new_func = $_POST['new_func'] ?? "";
     $new_email = $_POST['new_email'] ?? "";
     if ($new_user && $new_pass) {
+        $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
         $stmt = $mysqli->prepare("INSERT INTO usuario (username, senha, cargo, email) VALUES (?,?,?,?)");
-        $stmt->bind_param("ssss", $new_user, $new_pass, $new_func, $new_email);
-
+        $stmt->bind_param("ssss", $new_user, $hashed_pass, $new_func, $new_email);
         if ($stmt->execute()) {
             $register_msg = "Usuário cadastrado com sucesso!";
         } else {
@@ -51,38 +70,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
 
 <body>
     <div class="card">
-    <form method="post">
-        <h2>
-            Bem-vindo,
-            <?= isset($_SESSION["username"]) ? htmlspecialchars($_SESSION["username"]) : "Visitante" ?>!
-        </h2>
-        <h3>Cadastro Novo Usuário</h3>
-        <?php if ($register_msg):  ?> <p> <?= $register_msg ?> </p> <?php endif; ?>
-        <input type="text" name="new_username" placeholder="Nome Usuário" required>
-        <br>
-        <br>
-        <input type="password" name="new_password" placeholder="Senha" required>
-        <br>
-        <br>
-        <input type="email" name="new_email" placeholder="Email do usuario" required>
-        <br>
-        <br>
+        <form method="post">
+            <h2>
+                Bem-vindo,
+                <?= isset($_SESSION["username"]) ? htmlspecialchars($_SESSION["username"]) : "Visitante" ?>!
+            </h2>
+            <h3>Cadastro Novo Usuário</h3>
+            <?php if ($register_msg):  ?> <p> <?= $register_msg ?> </p> <?php endif; ?>
+            <input type="text" name="new_username" placeholder="Nome Usuário" required>
+            <br>
+            <br>
+            <input type="password" name="new_password" placeholder="Senha" required>
+            <br>
+            <br>
+            <input type="email" name="new_email" placeholder="Email do usuario" required>
+            <br>
+            <br>
             <div class="sele">
-        <select name="new_func">
-            <option value="adm">ADM</option>
-            <option value="funcionário">Funcionário</option>
-        </select>
+                <select name="new_func">
+                    <option value="adm">ADM</option>
+                    <option value="funcionário">Funcionário</option>
+                </select>
             </div>
-        <br>
-        <br>
-        <button type="submit" name="register" value="1"> Cadastrar</button>
-        <br>
-        <div class="forgot-adm">
-            <a href="editar.php">Editar usuario</a>
-        </div>
-        <button type="submit" name="Sair" value="1"> voltar</button>
-        
-    </form>
+            <br>
+            <br>
+            <button type="submit" name="register" value="1"> Cadastrar</button>
+            <br>
+            <div class="forgot-adm">
+                <a href="editar.php">Editar usuario</a>
+            </div>
+            <button type="submit" name="Sair" value="1"> voltar</button>
+
+        </form>
     </div>
 </body>
 
