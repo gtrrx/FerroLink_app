@@ -1,6 +1,5 @@
 <?php
 
-// 1) Conexão
 $mysqli = new mysqli("localhost", "root", "root", "banco_sa");
 if ($mysqli->connect_errno) {
     die("Erro de conexão: " . $mysqli->connect_error);
@@ -8,14 +7,12 @@ if ($mysqli->connect_errno) {
 
 session_start();
 
-// 2) Logout
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: index.php");
     exit;
 }
 
-// 3) Login
 $msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $_POST["username"] ?? "";
@@ -38,9 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
-
-
-
 
 <?php if (!empty($_SESSION["user_id"])): ?>
   <div class="card">
@@ -71,10 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <p><small>Dica: Admin / admin123</small></p>
   </div>
 <?php endif; ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

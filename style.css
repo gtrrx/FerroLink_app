@@ -8,7 +8,6 @@ body {
     min-height: 100vh;
 }
 
-
 .info-container {
     background-color: #ddd;
     margin: 15px auto;
@@ -32,7 +31,6 @@ body {
     padding-left: 25px;
     position: relative;
 }
-
 
 .trem-name {
     font-weight: bold;
@@ -60,7 +58,6 @@ body {
     overflow-x: auto; 
     white-space: nowrap; 
 }
-
 
 .menu-item {
     flex: 0 0 auto; 
@@ -209,19 +206,19 @@ button {
 
 .item-tipo {
     font-weight: bold;
-    color: #e74c3c; /* Vermelho para alertas */
+    color: #e74c3c; 
 }
 
 .item-tipo.chegada {
-    color: #2ecc71; /* Verde para chegadas */
+    color: #2ecc71; 
 }
 
 .item-tipo.informacao {
-    color: #3498db; /* Azul para informações */
+    color: #3498db; 
 }
 
 .item-tipo.atencao {
-    color: #f39c12; /* laranja para atenções */
+    color: #f39c12; 
 }
 
 .item-hora {
@@ -351,7 +348,6 @@ button:hover {
     text-decoration: underline;
 }
 
-
 .add_user {
     background-color: #ddd;
     width: 100%;
@@ -372,13 +368,16 @@ button:hover {
      background-size: cover;
     
 }
+
 a{
     text-decoration: none;
 }
+
 img {
     max-width: 100%;
     height: auto;
 }
+
 @media screen and (max-width: 480px) {
     .relatorio-container {
         padding: 0 10px;
@@ -402,9 +401,11 @@ img {
         font-size: 14px;
     }
 }
+
 input, button, label {
     font-size: 16px;
   }
+
   .card{
        background-color: rgb(150, 141, 141);
     padding: 35px;
@@ -415,13 +416,14 @@ input, button, label {
     margin-right: auto;
     margin-top: 250px;
   }
+
   .card {
-    background-color: #7e7d7d;  /* mesmo tom do login adm */
+    background-color: #7e7d7d;  
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
-    margin: 120px auto; /* centralizado */
+    margin: 120px auto; 
 }
 
 .card h2 {
@@ -446,7 +448,7 @@ input, button, label {
 .card button {
     width: 100%;
     padding: 10px;
-    background-color: #3498db;  /* azul igual ao adm */
+    background-color: #3498db;  
     color: white;
     border: none;
     border-radius: 24px;

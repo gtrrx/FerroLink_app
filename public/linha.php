@@ -24,7 +24,6 @@
 
         <div class="accordion accordion-flush" id="accordionFlushExample">
 
-            <!-- Trem A -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -34,7 +33,6 @@
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <!-- Aqui vão os switches -->
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
                             <label class="form-check-label">Switch 1</label>
@@ -55,12 +53,10 @@
                             <input class="form-check-input" type="checkbox" role="switch" checked>
                             <label class="form-check-label">Switch 1</label>
                         </div>
-                        <!-- Repita os demais switches aqui -->
                     </div>
                 </div>
             </div>
-        
-            <!-- Trem B -->
+
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -90,12 +86,10 @@
                             <input class="form-check-input" type="checkbox" role="switch" checked>
                             <label class="form-check-label">Switch 1</label>
                         </div>
-                        <!-- Repita os demais switches -->
                     </div>
                 </div>
             </div>
-        
-            <!-- Trem C -->
+
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -130,7 +124,6 @@
                 </div>
             </div>
         
-            <!-- Trem D -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"

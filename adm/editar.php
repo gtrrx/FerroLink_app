@@ -1,5 +1,4 @@
 <?php
-// 1) Conexão com o banco
 $mysqli = new mysqli("localhost", "root", "root", "banco_sa");
 if ($mysqli->connect_errno) {
     die("Erro de conexão: " . $mysqli->connect_error);
@@ -13,14 +12,12 @@ if(!isset($_SESSION["user_id"])){
     exit;
 }
 
-// 2) Logout
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: login.php");
     exit;
 }
 
-// Verifica se o formulário foi enviado para atualizar usuário
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id_usuario'])) {
     $id = intval($_POST['id_usuario']);
     $username = $_POST['username'];
@@ -36,13 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id_usuario'])) {
     $stmt->bind_param("sssssi", $username, $tipo_usuario, $cargo, $senha, $email, $id);
 
     if ($stmt->execute()) {
-        $mensagem = "✅ Usuário atualizado com sucesso!";
+        $mensagem = "Usuário atualizado com sucesso!";
     } else {
-        $mensagem = "❌ Erro ao atualizar: " . $mysqli->error;
+        $mensagem = "Erro ao atualizar: " . $mysqli->error;
     }
 }
 
-// Se foi passado um ID via GET, estamos no modo de edição
 $usuario_edit = null;
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
@@ -58,7 +54,6 @@ if (isset($_GET['id'])) {
     }
 }
 
-// 3) Buscar todos os usuários
 $sql = "SELECT id_usuario, username, senha, tipo_usuario, cargo, email FROM usuario";
 $result = $mysqli->query($sql);
 
@@ -79,7 +74,6 @@ if (!$result) {
 
     <?php if (isset($mensagem)) echo "<p><strong>$mensagem</strong></p>"; ?>
 
-    <!-- ✅ Tabela de usuários -->
     <h2>Usuários Cadastrados</h2>
     <table border="1" cellpadding="8">
         <tr>
@@ -107,7 +101,6 @@ if (!$result) {
         <?php } ?>
     </table>
 
-    <!-- ✅ Formulário de edição -->
     <?php if ($usuario_edit) { ?>
         <hr>
         <h2>Editar Usuário (ID <?= $usuario_edit['id_usuario'] ?>)</h2>
