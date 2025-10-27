@@ -167,3 +167,21 @@ create table Sensor_emite_alerta (
     fk_id_alerta int,
     foreign key (fk_id_alerta) references Alerta(id_alerta)
 );
+
+ALTER TABLE usuario
+ADD cargo ENUM('adm', 'func') NOT NULL DEFAULT 'func';
+
+ALTER TABLE usuario MODIFY cargo ENUM('adm', 'func', 'funcionário') NOT NULL DEFAULT 'func';
+
+INSERT INTO usuario (username, senha, cargo) VALUES
+('Admin','admin123','adm')
+
+ALTER TABLE usuario
+add email varchar(255) not null
+
+ALTER TABLE usuario
+ADD cep varchar(255) NOT null,
+ADD rua varchar(255) NOT null,
+ADD bairro varchar(255) NOT null,
+ADD cidade varchar(255) NOT null,
+ADD estado varchar(255) NOT null
