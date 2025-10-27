@@ -118,11 +118,11 @@ class ViaCepTest {
 como usar:
 
 
-na parte CADASTRO DO ADM ele informa para inserir o (CEP) do funcionário(a) assim que inserir o CEP aperte a tecla TAB para puxar as informações e se aparecer ao lado do email o cep e outras informações está testado 👍
+Na parte CADASTRO DO ADM ele informa para inserir o (CEP) do funcionário(a) assim que inserir o CEP aperte a tecla TAB para puxar as informações e se aparecer ao lado do email o cep e outras informações está testado 👍
 
 como testar:
  
-no site insira um CEP salve e abra o phpmyadmin se você ja criou em banco de dados para as informações do CEP já vai aparecer as informações se não, crie;
+No site insira um CEP salve e abra o phpmyadmin se você ja criou em banco de dados para as informações do CEP já vai aparecer as informações se não, crie;
 ALTER TABLE usuario
 
 ADD cep varchar(255) NOT null,
