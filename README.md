@@ -123,4 +123,4 @@ na parte CADASTRO DO ADM ele informa para inserir o (CEP) do funcionário(a) ass
 como testar:
 
 
-assim que inseriu o cep do funcionário abra o phpadmin e olhe se do lado do email aparece o cep rua cidade bairro estado
+assim que inseriu o cep do funcionário abra o phpadmin e aperte a teclas TAB para puxar as informações e se aparecer ao lado do email o cep e outras informações esta testado 👍
