@@ -118,9 +118,20 @@ class ViaCepTest {
 como usar:
 
 
-na parte CADASTRO DO ADM ele informa para inserir o (CEP) do funcionário(a) assim que inserir o CEP ele automaticamente puxa a rua e bairro da pessoa
+na parte CADASTRO DO ADM ele informa para inserir o (CEP) do funcionário(a) assim que inserir o CEP abra o phpmyadmin e aperte a teclas TAB para puxar as informações e se aparecer ao lado do email o cep e outras informações esta testado 👍
 
 como testar:
+ 
+no site insira um CEP salve a abra o phpmyadmin se você ja criou em banco de dados para as informações do CEP apenas aperte a tecla Tab que já vai aparecer as informações se não crie;
+ALTER TABLE usuario
 
+ADD cep varchar(255) NOT null,
 
-assim que inseriu o cep do funcionário abra o phpadmin e aperte a teclas TAB para puxar as informações e se aparecer ao lado do email o cep e outras informações esta testado 👍
+ADD rua varchar(255) NOT null,
+
+ADD bairro varchar(255) NOT null,
+
+ADD cidade varchar(255) NOT null,
+
+ADD estado varchar(255) NOT null
+
