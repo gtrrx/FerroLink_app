@@ -63,9 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <br>
       <a href="../index.php">Voltar</a>
     </form>
-   <button onclick="window.open('../img/5b17c27baa64a.jpeg', '_blank')">
-      Dica de acesso
-    </button>
     
   </div>
 <?php endif; ?>
