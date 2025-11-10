@@ -12,6 +12,9 @@ $topic4 = $_DB_UMID;
 $topic5 = $_DB_PRESENCAS1;
 $topic6 = $_DB_TREM;
 $topic7 = $_DB_STATUS;
+$topic8 = $_DB_SER1;
+$topic9 = $_DB_SER2;
+$topic10 = $_DB_PRESENCAS3;
 $client_id = "phpmqtt-" . rand();
 
 $username = $_DB_USER;
@@ -58,6 +61,18 @@ $mqtt->subscribe([$topic6 => ["qos" => 0, "function" => function ($topic6, $msg)
 
 $mqtt->subscribe([$topic7 => ["qos" => 0, "function" => function ($topic7, $msg) use (&$messages) {
     $messages[] = ["topic" => $topic7, "msg" => $msg, "time" => date("H:i:s")];
+}]], 0);
+
+$mqtt->subscribe([$topic8 => ["qos" => 0, "function" => function ($topic8, $msg) use (&$messages) {
+    $messages[] = ["topic" => $topic8, "msg" => $msg, "time" => date("H:i:s")];
+}]], 0);
+
+$mqtt->subscribe([$topic9 => ["qos" => 0, "function" => function ($topic9, $msg) use (&$messages) {
+    $messages[] = ["topic" => $topic9, "msg" => $msg, "time" => date("H:i:s")];
+}]], 0);
+
+$mqtt->subscribe([$topic10 => ["qos" => 0, "function" => function ($topic10, $msg) use (&$messages) {
+    $messages[] = ["topic" => $topic10, "msg" => $msg, "time" => date("H:i:s")];
 }]], 0);
 
 $start = time();
