@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
             <br><br>
 
             <div class="forgot-adm">
-                <a href="editar.php">Usuarios cadastrados</a>
+                <a href="editar.php">Editar usuário</a>
             </div>
             <button type="button" onclick="window.location.href='menu.php'">Voltar</button>
         </form>
