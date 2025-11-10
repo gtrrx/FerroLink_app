@@ -5,60 +5,56 @@ if ($mysqli->connect_errno) {
 }
 
 session_start();
-
-
-if(!isset($_SESSION["user_id"])){
+if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit;
 }
 
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header("Location: login.php");
-    exit;
+// EXCLUIR USUÁRIO
+if (isset($_GET['delete'])) {
+    $id_delete = intval($_GET['delete']);
+    $stmt = $mysqli->prepare("DELETE FROM usuario WHERE id_usuario=?");
+    $stmt->bind_param("i", $id_delete);
+
+    if ($stmt->execute()) {
+        header("Location: usuarios.php?msg=excluido");
+        exit;
+    }
 }
 
+// ATUALIZAR USUÁRIO
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id_usuario'])) {
     $id = intval($_POST['id_usuario']);
     $username = $_POST['username'];
-    $tipo_usuario = $_POST['tipo_usuario'];
+    $tipo = $_POST['tipo_usuario'];
     $cargo = $_POST['cargo'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
 
-    $sql = "UPDATE usuario 
-            SET username=?, tipo_usuario=?, cargo=?, senha=?, email=? 
-            WHERE id_usuario=?";
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("sssssi", $username, $tipo_usuario, $cargo, $senha, $email, $id);
+    $stmt = $mysqli->prepare("UPDATE usuario SET username=?, tipo_usuario=?, cargo=?, senha=?, email=? WHERE id_usuario=?");
+    $stmt->bind_param("sssssi", $username, $tipo, $cargo, $senha, $email, $id);
 
     if ($stmt->execute()) {
-        $mensagem = "Usuário atualizado com sucesso!";
-    } else {
-        $mensagem = "Erro ao atualizar: " . $mysqli->error;
+        header("Location: usuarios.php?msg=editado");
+        exit;
     }
 }
 
-$usuario_edit = null;
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
-    $sql = "SELECT * FROM usuario WHERE id_usuario=?";
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $usuario_edit = $result->fetch_assoc();
-
-    if (!$usuario_edit) {
-        die("Usuário não encontrado!");
-    }
+// BUSCAR USUÁRIO PARA EDITAR
+if (!isset($_GET['id'])) {
+    header("Location: usuarios.php");
+    exit;
 }
 
-$sql = "SELECT id_usuario, username, senha, tipo_usuario, cargo, email FROM usuario";
-$result = $mysqli->query($sql);
+$id = intval($_GET['id']);
+$stmt = $mysqli->prepare("SELECT * FROM usuario WHERE id_usuario=?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$usuario = $stmt->get_result()->fetch_assoc();
 
-if (!$result) {
-    die("Erro na consulta: " . $mysqli->error);
+if (!$usuario) {
+    echo "Usuário não encontrado!";
+    exit;
 }
 ?>
 
@@ -66,66 +62,46 @@ if (!$result) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Gerenciar Usuários</title>
+    <title>Editar Usuário</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Gerenciar Usuários</h1>
-    <a href="cadastro.php">Voltar</a>
 
-    <?php if (isset($mensagem)) echo "<p><strong>$mensagem</strong></p>"; ?>
+<div class="info-container">
+<h2>Editar Usuário (ID <?= $usuario['id_usuario'] ?>)</h2>
 
-    <h2>Usuários Cadastrados</h2>
-    <table border="1" cellpadding="8">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Tipo</th>
-            <th>Cargo</th>
-            <th>Senha</th>
-            <th>Email</th>
-            <th>Ações</th>
-        </tr>
+<form method="POST">
+    <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario'] ?>">
 
-        <?php while ($usuario = $result->fetch_assoc()) { ?>
-            <tr>
-                <td><?= $usuario['id_usuario'] ?></td>
-                <td><?= $usuario['username'] ?></td>
-                <td><?= $usuario['tipo_usuario'] ?></td>
-                <td><?= $usuario['cargo'] ?></td>
-                <td><?= $usuario['senha'] ?></td>
-                <td><?= $usuario['email'] ?></td>
-                <td>
-                    <a href="editar.php?id=<?= $usuario['id_usuario'] ?>">✏️ Editar</a>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
+    <label>Nome:</label>
+    <input type="text" name="username" value="<?= htmlspecialchars($usuario['username']) ?>" required>
 
-    <?php if ($usuario_edit) { ?>
-        <hr>
-        <h2>Editar Usuário (ID <?= $usuario_edit['id_usuario'] ?>)</h2>
+    <label>Tipo:</label>
+    <input type="text" name="tipo_usuario" value="<?= htmlspecialchars($usuario['tipo_usuario']) ?>" required>
 
-        <form method="POST" action="editar.php">
-            <input type="hidden" name="id_usuario" value="<?= $usuario_edit['id_usuario'] ?>">
+    <label>Cargo:</label>
+    <input type="text" name="cargo" value="<?= htmlspecialchars($usuario['cargo']) ?>" required>
 
-            <label>Nome:</label><br>
-            <input type="text" name="username" value="<?= htmlspecialchars($usuario_edit['username']) ?>" required><br><br>
+    <label>Senha:</label>
+    <input type="text" name="senha" value="<?= htmlspecialchars($usuario['senha']) ?>" required>
 
-            <label>Tipo:</label><br>
-            <input type="text" name="tipo_usuario" value="<?= htmlspecialchars($usuario_edit['tipo_usuario']) ?>" required><br><br>
+    <label>Email:</label>
+    <input type="email" name="email" value="<?= htmlspecialchars($usuario['email']) ?>" required>
 
-            <label>Cargo:</label><br>
-            <input type="text" name="cargo" value="<?= htmlspecialchars($usuario_edit['cargo']) ?>" required><br><br>
+    <button type="submit" class="btn-save">💾 Salvar Alterações</button>
+</form>
 
-            <label>Senha:</label><br>
-            <input type="text" name="senha" value="<?= htmlspecialchars($usuario_edit['senha']) ?>" required><br><br>
+<br>
 
-            <label>Email:</label><br>
-            <input type="email" name="email" value="<?= htmlspecialchars($usuario_edit['email']) ?>" required><br><br>
+<a class="btn-delete" href="editar.php?delete=<?= $usuario['id_usuario'] ?>" 
+   onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
+   🗑 Excluir Usuário
+</a>
 
-            <button type="submit">💾 Salvar Alterações</button>
-        </form>
-    <?php } ?>
+<br><br>
+<a href="usuarios.php" class="menu-item">⬅ Voltar</a>
+
+</div>
 
 </body>
 </html>
