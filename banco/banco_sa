@@ -173,8 +173,8 @@ ADD cargo ENUM('adm', 'func') NOT NULL DEFAULT 'func';
 
 ALTER TABLE usuario MODIFY cargo ENUM('adm', 'func', 'funcionário') NOT NULL DEFAULT 'func';
 
-INSERT INTO usuario (username, senha, cargo) VALUES
-('Admin','admin123','adm')
+INSERT INTO usuario (username, senha, tipo_usuario, cargo, email, cep, rua, bairro, cidade, estado) VALUES
+('Admin','admin123','Admin', 'adm', 'admin@gmail.com', '89203500', 'alagoas', 'america', 'joinville', 'sc')
 
 ALTER TABLE usuario
 add email varchar(255) not null

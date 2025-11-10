@@ -68,14 +68,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
         );
 
         if ($stmt->execute()) {
-            $register_msg = "Usuário cadastrado com sucesso!";
+            $register_msg = "Usuário cadastrado com sucesso!✅";
         } else {
-            $register_msg = "Erro ao cadastrar novo usuário: " . $stmt->error;
+            $register_msg = "Erro ao cadastrar novo usuário❌: " . $stmt->error;
         }
 
         $stmt->close();
     } else {
-        $register_msg = "Preencha todos os campos obrigatórios.";
+        $register_msg = "Preencha todos os campos obrigatórios⚠️.";
     }
 }
 ?>
@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
             <div class="forgot-adm">
                 <a href="editar.php">Editar usuário</a>
             </div>
-            <button type="button" onclick="window.location.href='menu.php'">Voltar</button>
+            <button type="button" onclick="window.location.href='login.php'">Voltar</button>
         </form>
     </div>
 </body>
