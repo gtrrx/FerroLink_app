@@ -481,3 +481,61 @@ input, button, label {
     text-align: center;
 
 }
+
+/* ---------- TABELA RESPONSIVA PARA SMARTPHONES ---------- */
+@media screen and (max-width: 768px) {
+
+    table {
+        border: 0;
+        width: 100%;
+    }
+
+    thead {
+        display: none; /* Esconde o cabeçalho para telas pequenas */
+    }
+
+    tr {
+        display: block;
+        background-color: #fff;
+        margin-bottom: 15px;
+        border: 2px solid #2a60f5;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 10px;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #2a60f5;
+        flex: 1;
+        text-align: left;
+        padding-right: 10px;
+    }
+
+    .editar-link a {
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .editar-link a:hover {
+        background-color: #2980b9;
+    }
+}

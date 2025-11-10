@@ -63,44 +63,49 @@ if (!$usuario) {
 <head>
     <meta charset="UTF-8">
     <title>Editar Usuário</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="editar.css">
 </head>
 <body>
 
 <div class="info-container">
-<h2>Editar Usuário (ID <?= $usuario['id_usuario'] ?>)</h2>
+    <h2>Editar Usuario</h2>
 
-<form method="POST">
-    <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario'] ?>">
+    <form method="POST">
+        <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuario['id_usuario']) ?>">
 
-    <label>Nome:</label>
-    <input type="text" name="username" value="<?= htmlspecialchars($usuario['username']) ?>" required>
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" name="username" value="<?= htmlspecialchars($usuario['username']) ?>" required>
+        </div> <br>
 
-    <label>Tipo:</label>
-    <input type="text" name="tipo_usuario" value="<?= htmlspecialchars($usuario['tipo_usuario']) ?>" required>
+        <div class="form-group">
+            <label>Tipo:</label>
+            <input type="text" name="tipo_usuario" value="<?= htmlspecialchars($usuario['tipo_usuario']) ?>" required>
+        </div> <br>
 
-    <label>Cargo:</label>
-    <input type="text" name="cargo" value="<?= htmlspecialchars($usuario['cargo']) ?>" required>
+        <div class="form-group">
+            <label>Cargo:</label>
+            <input type="text" name="cargo" value="<?= htmlspecialchars($usuario['cargo']) ?>" required>
+        </div> <br>
 
-    <label>Senha:</label>
-    <input type="text" name="senha" value="<?= htmlspecialchars($usuario['senha']) ?>" required>
+        <div class="form-group">
+            <label>Senha:</label>
+            <input type="text" name="senha" value="<?= htmlspecialchars($usuario['senha']) ?>" required>
+        </div> <br>
 
-    <label>Email:</label>
-    <input type="email" name="email" value="<?= htmlspecialchars($usuario['email']) ?>" required>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" name="email" value="<?= htmlspecialchars($usuario['email']) ?>" required>
+        </div> <br>
 
-    <button type="submit" class="btn-save">💾 Salvar Alterações</button>
-</form>
+        <button type="submit" class="btn-save">💾 Salvar Alterações</button>
+    </form><br>
 
-<br>
-
-<a class="btn-delete" href="editar.php?delete=<?= $usuario['id_usuario'] ?>" 
-   onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
-   🗑 Excluir Usuário
-</a>
-
-<br><br>
-<a href="usuarios.php" class="menu-item">⬅ Voltar</a>
-
+    <a class="btn-delete" href="editar.php?delete=<?= $usuario['id_usuario'] ?>" 
+       onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
+       🗑 Excluir Usuário
+    </a> <br><br>
+    <a href="usuarios.php" class="btn-voltar">⬅ Voltar</a>
 </div>
 
 </body>
