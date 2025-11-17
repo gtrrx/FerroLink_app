@@ -136,18 +136,27 @@ class phpMQTT
             $this->password = $password;
         }
 
-        if ($this->cafile) {
-            $socketContext = stream_context_create(
-                [
-                    'ssl' => [
-                        'verify_peer_name' => true,
-                        'cafile' => $this->cafile
-                    ]
-                ]
-            );
-            $this->socket = stream_socket_client('tls://' . $this->address . ':' . $this->port, $errno, $errstr, 60, STREAM_CLIENT_CONNECT, $socketContext);
-        } else {
-            $this->socket = stream_socket_client('tcp://' . $this->address . ':' . $this->port, $errno, $errstr, 60, STREAM_CLIENT_CONNECT);
+        // Desabilitar verificação de certificado (HiveMQ Cloud sem CA)
+        $socketContext = stream_context_create([
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true,
+            ]
+        ]);
+
+        $this->socket = stream_socket_client(
+            'tls://' . $this->address . ':' . $this->port,
+            $errno,
+            $errstr,
+            60,
+            STREAM_CLIENT_CONNECT,
+            $socketContext
+        );
+
+        if (!$this->socket) {
+            $this->_errorMessage("stream_socket_create() $errno, $errstr");
+            return false;
         }
 
         if (!$this->socket) {
@@ -155,8 +164,8 @@ class phpMQTT
             return false;
         }
 
-        stream_set_timeout($this->socket, 5);
-        stream_set_blocking($this->socket, 0);
+        stream_set_timeout($this->socket, 10);
+        stream_set_blocking($this->socket, true);
 
         $i = 0;
         $buffer = '';

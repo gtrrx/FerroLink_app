@@ -1,32 +1,48 @@
 <?php
-require("phpMQTT.php");
-include_once(".env.php");
 
-$server = $_DB_HOST;
-$port = $_DB_PORT;
-$topic = $_DB_ILUM;
-$topic1 = $_DB_PRESENCA1;
-$topic2 = $_DB_PRESENCA2;
-$topic3 = $_DB_TEMP;
-$topic4 = $_DB_UMID;
-$topic5 = $_DB_PRESENCAS1;
-$topic6 = $_DB_TREM;
-$topic7 = $_DB_STATUS;
-$topic8 = $_DB_SER1;
-$topic9 = $_DB_SER2;
-$topic10 = $_DB_PRESENCAS3;
-$client_id = "phpmqtt-" . rand();
+require_once __DIR__ . '/phpMQTT.php';
+require_once __DIR__ . '/env_loader.php';
 
-$username = $_DB_USER;
-$password = $_DB_PASS;
+// Carregar variáveis do .env
+loadEnv(__DIR__ . '/.env');
+
+// Pegando valores carregados
+$topic = $_ENV["TOPIC_ILUM"];
+$topic1 = $_ENV["TOPIC_PRESENCA1"];
+$topic2 = $_ENV["TOPIC_PRESENCA2"];
+$topic3 = $_ENV["TOPIC_TEMP"];
+$topic4 = $_ENV["TOPIC_UMID"];
+$topic5 = $_ENV["TOPIC_PRESENCAS1"];
+$topic6 = $_ENV["TOPIC_TREM"];
+$topic7 = $_ENV["TOPIC_STATUS"];
+$topic8 = $_ENV["TOPIC_SER1"];
+$topic9 = $_ENV["TOPIC_SER2"];
+$topic10 = $_ENV["TOPIC_PRESENCAS3"];
+$server   = $_ENV["MQTT_HOST"];
+$port     = (int) $_ENV["MQTT_PORT"];
+$username = $_ENV["MQTT_USER"];
+$password = $_ENV["MQTT_PASS"];
+
+$client_id = "php-client-" . uniqid();
 
 header('Content-Type: application/json');
 
 $messages = [];
 
 $mqtt = new Bluerhinos\phpMQTT($server, $port, $client_id);
+
+$mqtt->socketContext = stream_context_create([
+    'ssl' => [
+        'verify_peer' => true,
+        'verify_peer_name' => true,
+        'cafile' => __DIR__ . '/certs/BaltimoreCyberTrustRoot.crt'
+    ]
+]);
+
+$mqtt->ssl = true;
+
 if (!$mqtt->connect(true, NULL, $username, $password)) {
-    echo json_encode(["error" => "Não foi possível conectar ao broker"]);
+    echo json_encode(["error" => "Falha ao conectar ao HiveMQ"]);
     exit;
 }
 
@@ -76,10 +92,13 @@ $mqtt->subscribe([$topic10 => ["qos" => 0, "function" => function ($topic10, $ms
 }]], 0);
 
 $start = time();
-while (time() - $start < 2) { // escuta 2 segundos
+while (time() - $start < 8) {
     $mqtt->proc();
+    usleep(100000); // evita travar CPU
 }
 
 $mqtt->close();
 
 echo json_encode($messages);
+
+?>
