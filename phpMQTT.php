@@ -136,35 +136,31 @@ class phpMQTT
             $this->password = $password;
         }
 
-        // Desabilitar verificação de certificado (HiveMQ Cloud sem CA)
-        $socketContext = stream_context_create([
-            'ssl' => [
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true,
-            ]
-        ]);
-
-        $this->socket = stream_socket_client(
-            'tls://' . $this->address . ':' . $this->port,
+        if ($this->cafile) {
+            $socketContext = stream_context_create([    
+                    'ssl' => [
+                         'verify_peer' => true,
+                            'verify_peer_name' => true,
+                            'allow_self_signed' => false,
+                            'peer_name' => $this->address,
+                            'cafile' => __DIR__ . '/cacert.pem',
+                            'crypto_method' => STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT
+                        ]
+            ]);
+            $this->socket = stream_socket_client("tls://{$this->address}:{$this->port}",
             $errno,
             $errstr,
-            60,
+            10,
             STREAM_CLIENT_CONNECT,
             $socketContext
         );
 
-        if (!$this->socket) {
-            $this->_errorMessage("stream_socket_create() $errno, $errstr");
+        if ($this->socket === false) {
+            $this->_errorMessage("TLS connection failed: $errno - $errstr");
             return false;
         }
 
-        if (!$this->socket) {
-            $this->_errorMessage("stream_socket_create() $errno, $errstr");
-            return false;
-        }
-
-        stream_set_timeout($this->socket, 10);
+        stream_set_timeout($this->socket, 5);
         stream_set_blocking($this->socket, true);
 
         $i = 0;
@@ -274,7 +270,7 @@ class phpMQTT
      *
      * @return false|string
      */
-    public function read($int = 8192, $nb = false)
+    public function read($int = 8192, $nb = false): string
     {
         $string = '';
         $togo = $int;

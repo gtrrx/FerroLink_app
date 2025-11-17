@@ -77,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Document</title>
 </head>
 
-      <a href="getmessagens.php">Ver Mensagens MQTT</a>
-      <a href="phpMQTT.php">Ver PHP Info</a>
+      <a href="get_messages.php">Ver Mensagens MQTT</a>
+      <a href="test.php">test</a>
 
 
 
