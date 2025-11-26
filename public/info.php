@@ -74,7 +74,7 @@
         </ul>
     </div>
 
-    <button type="submit"><a href="">Avançar</a></button>
+    <button type="submit"><a href="relatorio.php">Avançar</a></button>
 
 
     <div class="bottom-menu">

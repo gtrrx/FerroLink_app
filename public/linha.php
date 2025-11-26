@@ -35,23 +35,23 @@
                     <div class="accordion-body">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Luz</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Temperatura</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Horário</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Clima</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Em movimento</label>
                         </div>
                     </div>
                 </div>
@@ -68,23 +68,23 @@
                     <div class="accordion-body">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Luz</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Temperatura</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Horário</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Clima</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Em movimento</label>
                         </div>
                     </div>
                 </div>
@@ -102,23 +102,23 @@
                         
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Luz</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Temperatura</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Horário</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Clima</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Em movimento</label>
                         </div>
                     </div>
                 </div>
@@ -136,27 +136,27 @@
                         
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Luz</label>
                         </div>
 
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Temperatura</label>
                         </div>
 
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Horário</label>
                         </div>
 
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Clima</label>
                         </div>
 
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" checked>
-                            <label class="form-check-label">Switch 1</label>
+                            <label class="form-check-label">Em movimento</label>
                         </div>
                     </div>
                 </div>

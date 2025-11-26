@@ -168,6 +168,7 @@ button {
     width: 70%;
     max-width: 70%;
     margin: 0 auto;
+    margin-top: 60px;
     background-color: rgb(245, 244, 244);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -327,14 +328,14 @@ button:hover {
 }
 
 .container {
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
+    height: 80%;
+    margin: 50px;
+    margin-top: 60px;
     background-color: #ffffff;
     padding: 0px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+    border: 2px solid #2a60f5;
 }
 
 .forgot-adm a {
