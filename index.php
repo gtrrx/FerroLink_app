@@ -62,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <a href="adm/login.php">Entrar como Admin</a>
         </div>
     </form>
-    <p><small>Dica: Admin / admin123</small></p>
   </div>
 <?php endif; ?>
 
