@@ -52,7 +52,7 @@ body {
     width: 100%;
     margin-top: 20px;
     padding: 14px;
-    background: #e08b8b;
+    background: #3498db;
     border: none;
     color: white;
     font-weight: bold;
@@ -63,7 +63,7 @@ body {
 }
 
 .btn-save:hover {
-    background: #d17373;
+    background: #3498db;
 }
 
 /* ---- Excluir ---- */

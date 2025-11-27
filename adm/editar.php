@@ -98,14 +98,14 @@ if (!$usuario) {
             <input type="email" name="email" value="<?= htmlspecialchars($usuario['email']) ?>" required>
         </div> <br>
 
-        <button type="submit" class="btn-save">💾 Salvar Alterações</button>
+        <button type="submit" class="btn-save">Salvar Alterações</button>
     </form><br>
 
     <a class="btn-delete" href="editar.php?delete=<?= $usuario['id_usuario'] ?>" 
        onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
-       🗑 Excluir Usuário
+    Excluir Usuário
     </a> <br><br>
-    <a href="usuarios.php" class="btn-voltar">⬅ Voltar</a>
+    <a href="usuarios.php" class="btn-voltar">Voltar</a>
 </div>
 
 </body>

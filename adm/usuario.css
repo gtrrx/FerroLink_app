@@ -47,7 +47,7 @@ table td {
 /* Botão editar */
 .btn-edit {
     text-decoration: none;
-    color: #d17373;
+    color: #3498db;
     font-weight: bold;
 }
 
@@ -61,7 +61,7 @@ table td {
     margin: 20px auto 0 auto;
     width: 200px;
     padding: 12px;
-    background: #e08b8b;
+    background: #3498db;
     color: white;
     text-decoration: none;
     text-align: center;
@@ -70,5 +70,5 @@ table td {
 }
 
 .btn-voltar:hover {
-    background: #d17373;
+    background: #3498db;
 }

@@ -79,6 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       <a href="get_messages.php">Ver Mensagens MQTT</a>
       <a href="test.php">test</a>
+      <br>
+      <a href="mqtt/exibir.php">test_py</a>
 
 
 
