@@ -26,7 +26,6 @@ $result = $mysqli->query($sql);
 <div class="info-container">
 <h1>Usuários Cadastrados</h1>
 
-<a href="cadastro.php" class="menu-item">Voltar</a>
 
 <table border="1" cellpadding="8" width="100%">
     <tr>
@@ -52,6 +51,7 @@ $result = $mysqli->query($sql);
     <?php } ?>
 </table>
 </div>
+<button><a href="cadastro.php">Voltar</a></button>
 
 </body>
 </html>
