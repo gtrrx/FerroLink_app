@@ -19,25 +19,25 @@ $result = $mysqli->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Usuários Cadastrados</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="usuario.css">
 </head>
 <body>
 
-<div class="info-container">
-<h1>Usuários Cadastrados</h1>
+<div class="container">
 
+    <h2>Usuários Cadastrados</h2>
 
-<table border="1" cellpadding="8" width="100%">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Tipo</th>
-        <th>Cargo</th>
-        <th>Email</th>
-        <th>Ações</th>
-    </tr>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Cargo</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
 
-    <?php while ($usuario = $result->fetch_assoc()) { ?>
+        <?php while ($usuario = $result->fetch_assoc()) { ?>
         <tr>
             <td><?= $usuario['id_usuario'] ?></td>
             <td><?= $usuario['username'] ?></td>
@@ -45,13 +45,15 @@ $result = $mysqli->query($sql);
             <td><?= $usuario['cargo'] ?></td>
             <td><?= $usuario['email'] ?></td>
             <td>
-                <a class="btn-edit" href="editar.php?id=<?= $usuario['id_usuario'] ?>">✏️ Editar</a>
+                <a class="btn-edit" href="editar.php?id=<?= $usuario['id_usuario'] ?>">✏ Editar</a>
             </td>
         </tr>
-    <?php } ?>
-</table>
+        <?php } ?>
+    </table>
+
+    <a href="cadastro.php" class="btn-voltar">Voltar</a>
+
 </div>
-<button><a href="cadastro.php">Voltar</a></button>
 
 </body>
 </html>
