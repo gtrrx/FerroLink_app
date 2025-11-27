@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
             <br>
             <button type="button" onclick="window.location.href='editar.php'">Editar Usuário</button>
             <br><br>
-            <button type="button" onclick="window.location.href='../index.php'">Voltar</button>
+            <button type="button" onclick="window.location.href='../index.php'">Sair</button>
 
         </form>
     </div>
